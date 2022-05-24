@@ -1,0 +1,16 @@
+<suite name="GRID Sanity Suit" parallel="tests" thread-count="2">
+
+    <test name="UI view tests">
+        <classes>
+            <class name="uitest.UIViewTest"/>
+        </classes>
+    </test>
+
+
+    <test name="Functional sanity tests">
+        <classes>
+            <class name="uitest.FunctionalSanityTest"/>
+        </classes>
+    </test>
+
+</suite>
