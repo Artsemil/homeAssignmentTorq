@@ -19,5 +19,5 @@ Can be done using TestNG and Docker
 * thread-count parameter in the .xml file with tests
 * nodesAmount variable in the pipeline
 
-### CExecution within a CI/CD pipeline ###
+### Execution within a CI/CD pipeline ###
 Created automation_pipeline.groovy with variables that should be set up in the Jenkins
