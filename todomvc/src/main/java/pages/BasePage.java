@@ -10,10 +10,10 @@ public class BasePage extends AbstractPage {
         super(webDriver);
     }
 
-    public BasePage open() {
+    public TodoVMCPage open() {
         webDriver.get(URL);
         LOGGER.debug("Page " + URL + " was opened");
-        return this;
+        return new TodoVMCPage(webDriver);
     }
 
 }

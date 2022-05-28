@@ -6,14 +6,16 @@ import browserFactory.BrowserType;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
+import pages.TodoVMCPage;
 
 import static utils.PropertiesReader.getPropertyValue;
 
 public abstract class BaseTest {
 
     private WebDriver webDriver;
-    private BasePage basePage;
+    protected TodoVMCPage todoVMCPage;
     private BrowserManager manager;
     private BrowserType browserType = BrowserType.valueOf(getPropertyValue("BROWSER"));
 
@@ -21,8 +23,13 @@ public abstract class BaseTest {
     public void loadState() {
         manager = BrowserManagerFactory.getManager(browserType);
         webDriver = manager.getDriver();
-        basePage = new BasePage(webDriver).open();
+        todoVMCPage = new TodoVMCPage(webDriver).open();
         webDriver.manage().window().maximize();
+    }
+
+    @BeforeMethod
+    public void beforeMethod() {
+        todoVMCPage.selectAllTasks();
     }
 
     @AfterClass
